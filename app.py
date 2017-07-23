@@ -28,7 +28,7 @@ def webhook():
     # endpoint para procesar los mensajes que llegan
 
     data = request.get_json()
-    log(data)  # logging, no necesario en produccion
+    # log(data)  # logging, no necesario en produccion
 
     if data["object"] == "page":
 
@@ -64,7 +64,7 @@ def webhook():
 
 def send_message(recipient_id, message_text):
 
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
+    # log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
 
     params = {
         "access_token": os.environ["PAGE_ACCESS_TOKEN"]
