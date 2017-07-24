@@ -30,6 +30,8 @@ def webhook():
     data = request.get_json()
     # log(data)  # logging, no necesario en produccion
 
+    inteligente = False
+
     if data["object"] == "page":
 
         for entry in data["entry"]:
@@ -41,14 +43,17 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # el facebook ID de la pagina que recibe (tu pagina)
                     message_text = messaging_event["message"]["text"]  # el texto del mensaje
 
-                    chatbot = ChatBot(
-                        'Chalo',
-                        trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
-                    )
-                    chatbot.train("chatterbot.corpus.spanish")
-                    response = chatbot.get_response(message_text)
+                    if inteligente:
+                        chatbot = ChatBot(
+                            'Chalo',
+                            trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
+                        )
+                        chatbot.train("chatterbot.corpus.spanish")
+                        response = chatbot.get_response(message_text)
 
-                    send_message(sender_id, response.text)
+                        send_message(sender_id, response.text)
+                    else:
+                        send_message(sender_id, "Hola")
 
                 if messaging_event.get("delivery"):  # confirmacion de delivery
                     pass
