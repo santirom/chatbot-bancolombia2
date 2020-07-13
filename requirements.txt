@@ -1,3 +1,5 @@
+chatterbot
+chatterbot_corpus
 Flask
 Jinja2
 MarkupSafe
@@ -6,5 +8,3 @@ click
 gunicorn
 itsdangerous
 requests
-chatterbot
-chatterbot_corpus
