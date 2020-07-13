@@ -16,8 +16,6 @@ def verify():
 
     # cuando el endpoint este registrado como webhook, debe mandar de vuelta
     # el valor de 'hub.challenge' que recibe en los argumentos de la llamada
-
-    log('Verify token ', os.environ['VERIFY_TOKEN'])
     if request.args.get('hub.mode') == 'subscribe' \
         and request.args.get('hub.challenge'):
         if not request.args.get('hub.verify_token') \
