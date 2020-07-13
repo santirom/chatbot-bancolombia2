@@ -1,5 +1,5 @@
 chatterbot
-chatterbot_corpus
+git+https://github.com/gunthercox/chatterbot-corpus.git#egg=chatterbot-corpus
 Flask
 Jinja2
 MarkupSafe
