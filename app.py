@@ -90,7 +90,7 @@ def send_message(recipient_id, message_text):
 
 
 def log(message):  # funcion de logging para heroku
-    print str(message)
+    print(str(message))
     sys.stdout.flush()
 
 
