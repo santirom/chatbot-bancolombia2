@@ -16,6 +16,7 @@ def verify():
 
     # cuando el endpoint este registrado como webhook, debe mandar de vuelta
     # el valor de 'hub.challenge' que recibe en los argumentos de la llamada
+
     if request.args.get('hub.mode') == 'subscribe' \
         and request.args.get('hub.challenge'):
         if not request.args.get('hub.verify_token') \
@@ -35,7 +36,7 @@ def webhook():
 
     # log(data)  # logging, no necesario en produccion
 
-    inteligente = True
+    inteligente = False
 
     if data['object'] == 'page':
 
@@ -49,10 +50,13 @@ def webhook():
                     message_text = messaging_event['message']['text']  # el texto del mensaje
 
                     if inteligente:
-                        chatbot = ChatBot('Chalo',
-                                trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
-                                )
-                        chatbot.train('chatterbot.corpus.spanish')
+                        chatbot = ChatBot('Chalo')
+                        trainer = ChatterBotCorpusTrainer(chatbot)
+
+                        # Train the chatbot based on the spanish corpus
+
+                        trainer.train('chatterbot.corpus.spanish')
+
                         response = chatbot.get_response(message_text)
 
                         send_message(sender_id, response.text)
