@@ -56,7 +56,7 @@ def webhook():
 
                         # Train the chatbot based on the spanish corpus
 
-                        trainer.train('chatterbot.corpus.spanish')
+                        trainer.train('chatterbot.corpus.english')
 
                         response = chatbot.get_response(message_text)
 
