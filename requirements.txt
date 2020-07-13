@@ -7,4 +7,4 @@ gunicorn
 itsdangerous
 requests
 chatterbot
-chatterbot-corpus
+chatterbot_corpus
