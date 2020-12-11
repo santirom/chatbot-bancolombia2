@@ -9,7 +9,8 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 import requests
 from flask import Flask, request
 
-
+import en_core_web_sm
+nlp = en_core_web_sm.load()
 app = Flask(__name__)
 
 
