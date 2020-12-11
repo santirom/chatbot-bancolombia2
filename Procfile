@@ -1,2 +1,1 @@
-heroku ps:scale web=1
-gunicorn onbytes.wsgi:application
+web: gunicorn app:app --log-file=-
