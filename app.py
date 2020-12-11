@@ -10,6 +10,9 @@ import requests
 from flask import Flask, request
 
 
+import spacy
+nlp = spacy.load("en_core_web_sm")
+
 app = Flask(__name__)
 
 
