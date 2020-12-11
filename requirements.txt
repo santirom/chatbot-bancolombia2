@@ -5,7 +5,7 @@ Jinja2
 MarkupSafe
 Werkzeug
 click
-gunicorn
+gunicorn==19.6.0
 itsdangerous
 requests
 spacy
