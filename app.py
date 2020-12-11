@@ -5,8 +5,7 @@ import os
 import sys
 import json
 from chatterbot import ChatBot
-#from chatterbot.trainers import ChatterBotCorpusTrainer
-from chatterbot.trainers import ListTrainer
+from chatterbot.trainers import ChatterBotCorpusTrainer
 import requests
 from flask import Flask, request
 
@@ -55,20 +54,11 @@ def webhook():
 
                     if inteligente:
                         chatbot = ChatBot('Chalo')
+                        trainer = ChatterBotCorpusTrainer(chatbot)
 
-                        #trainer = ChatterBotCorpusTrainer(chatbot)
-                        #trainer.train('chatterbot.corpus.english')
+                        # Train the chatbot based on the spanish corpus
 
-                        trainer = ListTrainer(chatbot)
-
-                        trainer.train([
-                            "hola",
-                            "cómo estás?",
-                            "bien, y tu?",
-                            "bien gracias. ¿Qué te trae hoy por acá?",
-                            "adiós",
-                            "adiós"
-                        ])
+                        trainer.train('chatterbot.corpus.english')
 
                         response = chatbot.get_response(message_text)
 
