@@ -11,7 +11,8 @@ from flask import Flask, request
 
 
 import spacy
-nlp = spacy.load("en_core_web_sm")
+import en_core_web_md
+nlp = en_core_web_md.load()
 
 app = Flask(__name__)
 
