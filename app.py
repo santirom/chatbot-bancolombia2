@@ -5,7 +5,7 @@ import os
 import sys
 import json
 from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
+#from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import ListTrainer
 import requests
 from flask import Flask, request
