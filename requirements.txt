@@ -1,7 +1,7 @@
 Flask
 Jinja2
 MarkupSafe
-Werkzeug=
+Werkzeug
 click
 gunicorn
 itsdangerous
