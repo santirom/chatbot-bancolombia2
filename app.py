@@ -7,8 +7,6 @@ import json
 import requests
 from flask import Flask, request
 
-import spacy
-spacy.load("en_core_web_sm")
 app = Flask(__name__)
 
 

@@ -6,4 +6,3 @@ click
 gunicorn
 itsdangerous
 requests
-spacy
