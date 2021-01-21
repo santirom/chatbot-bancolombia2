@@ -4,8 +4,6 @@
 import os
 import sys
 import json
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
 import requests
 from flask import Flask, request
 
@@ -52,19 +50,7 @@ def webhook():
                     recipient_id = messaging_event['recipient']['id']  # el facebook ID de la pagina que recibe (tu pagina)
                     message_text = messaging_event['message']['text']  # el texto del mensaje
 
-                    if inteligente:
-                        chatbot = ChatBot('Chalo')
-                        trainer = ChatterBotCorpusTrainer(chatbot)
-
-                        # Train the chatbot based on the spanish corpus
-
-                        trainer.train('chatterbot.corpus.english')
-
-                        response = chatbot.get_response(message_text)
-
-                        send_message(sender_id, response.text)
-                    else:
-                        send_message(sender_id, 'Hola')
+                    send_message(sender_id, 'Hola, soy siempre la misma respuesta')
 
                 if messaging_event.get('delivery'):  # confirmacion de delivery
                     pass
